@@ -30,6 +30,10 @@ open SQLAlchemy engine / sqlite3 connection.
 Requires: pandas, numpy, matplotlib.
 Optional: openpyxl (xlsx), pyarrow (parquet/feather/orc), sqlalchemy (database URLs),
           pyreadstat (spss).
+
+Sample command line usage:
+----------------
+python3 run_eda.py data/tixinfo.csv -o outputs/tixinfo_report.html
 """
 from __future__ import annotations
 
