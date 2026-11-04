@@ -221,3 +221,6 @@ __marimo__/
 .DS_Store
 data/*
 data/raw/tm_*/
+.python-version
+pyproject.toml
+uv.lock
