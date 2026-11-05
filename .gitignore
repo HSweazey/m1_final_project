@@ -225,3 +225,4 @@ data/raw/tm_*/
 pyproject.toml
 uv.lock
 gametime data/
+ARCHIEVE/

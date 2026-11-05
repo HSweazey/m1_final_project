@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Load the data/gametime*.csv files into a single SQLite table (data/music.db)."""
+"""run ONCE to build the database"""
 
 import sqlite3
 import sys
@@ -87,7 +88,12 @@ def load_file(conn: sqlite3.Connection, path: Path) -> int:
 
 
 def main() -> None:
-    files = sorted(DATA_DIR.glob("gametime*.csv"))
+    if DB_PATH.exists(): # added so that we dont overwrite the existing database without confirmation
+        answer = input(f"{DB_PATH} already exists. Rebuild it from scratch? (y/n): ")
+        if answer.strip().lower() != "y":
+            sys.exit("Stopped. Nothing was changed.")
+    
+    files = sorted((DATA_DIR / "gametime").glob("gametime*.csv"))
     if not files:
         sys.exit(f"No gametime*.csv files found in {DATA_DIR}")
 
