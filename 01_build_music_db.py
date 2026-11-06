@@ -1,6 +1,27 @@
-#!/usr/bin/env python3
-"""Load the data/gametime*.csv files into a single SQLite table (data/music.db)."""
-"""run ONCE to build the database"""
+"""
+Load the data/gametime*.csv files into a single SQLite table (data/music.db).
+run ONCE to build the database
+
+What this script is for
+    - turns the raw Gametime CSV files into one database that the rest of the project can query
+
+Why 
+    - the Gametime data is about 1.9 million rows spread over two big CSV files, which is slow 
+    and awkward to load into pandas every time. A SQLite database lets every other notebook pull 
+    just the rows and columns it needs.
+
+step by step:
+    1. Finds the Gametime CSVs in data/gametime/.
+    2. Checks the columns match, fixes the date formats, and loads the rows in chunks.
+    3. Skips duplicate rows (same _primaryKey) and adds indexes on eventId and date.
+    4. Writes data/music.db (table "gametime"). If the file already exists it asks before
+    rebuilding.
+
+Where it fits
+    - this is the first step. Run it ONCE. 02_music_exploration.ipynb, 
+    04_artists.ipynb and the Gametime shows table (to-do step 1) all read data/music.db.
+---------------------------------------------------------------------
+"""
 
 import sqlite3
 import sys

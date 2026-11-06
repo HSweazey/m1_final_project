@@ -2,6 +2,25 @@
 """
 eda.py - one-file exploratory data analysis that writes a self-contained HTML report.
 
+What this script is for
+-----------------------
+In one line: a reusable tool that gives a quick, automatic first look at any dataset and
+saves it as an HTML report you can open in a browser.
+
+Why the project needs it: we have several datasets (the two Gametime CSVs, music.db,
+tixinfo) and need to understand each one quickly before deciding how to use it. This
+makes that check take one command instead of a custom notebook each time.
+
+What it does, step by step:
+1. Loads the data (CSV, SQLite database, Excel, parquet, and more).
+2. Works out per-column stats, missing values, distributions, correlations and
+   data-quality problems (constant columns, duplicates, outliers).
+3. Writes everything to one self-contained HTML file (we keep these in outputs/).
+
+Where it fits: it is a side tool, not a step in the data pipeline, and nothing else
+depends on it. It produced the reports in outputs/ and is the quick way to check a new
+dataset, for example to decide whether to use tixinfo (to-do step 5).
+
 Command line
 ------------
     python eda.py data.csv
