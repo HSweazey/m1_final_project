@@ -6,11 +6,15 @@ then summarize missing (NaN) values by feature for each table."""
 
 # ----- venue
 # drop capacity because 83.1% missing
-# drop county, a little too detailed for our purposes
+# drop county_fips, county_name, county_population a little too detailed for our purposes
 # country has 594 missing values
 # state has 645 missing values
 # drop sg_
 # drop timezone
+
+# ----- artists
+# drop name_similarity
+# drop years_active, year_formed, country, mdid
 
 import sqlite3
 from pathlib import Path
