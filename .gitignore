@@ -226,3 +226,4 @@ pyproject.toml
 uv.lock
 gametime data/
 ARCHIEVE/
+data/
