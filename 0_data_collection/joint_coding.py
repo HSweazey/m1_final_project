@@ -21,7 +21,7 @@ from pathlib import Path
 
 import pandas as pd
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 DB_PATH = DATA_DIR / "music.db"
 TABLES = ["artists", "shows", "venues"]
 

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent / "data"
 OUTPUT = DATA_DIR / "tixinfo_merged.csv"
 PATTERN = re.compile(r"tixinfo[-_]\d{4}[-_]\d{2}\.csv")
 
